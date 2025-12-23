@@ -8,12 +8,12 @@ public class Seat {
         this.seatNumber = seatNumber;
         this.isReserved = false;
     }
-    public void reserve(){
+    public boolean reserve(){
         if(!isReserved){
-            this.isReserved = true;
-        }else {
-            System.out.println("Seat is full!");
+            isReserved = true;
+            return true;
         }
+        return false;
     }
     public void free(){
         this.isReserved = false;

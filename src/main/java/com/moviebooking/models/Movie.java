@@ -13,8 +13,14 @@ public abstract class Movie {
         this.basePrice = basePrice;
     }
     public abstract double getTicketPrice();
-    public String getTittle(){
+    public String getTitle(){
         return title;
+    }
+    public String getGenre(){
+        return genre;
+    }
+    public int getDurationMinutes(){
+        return durationMinutes;
     }
 }
 
