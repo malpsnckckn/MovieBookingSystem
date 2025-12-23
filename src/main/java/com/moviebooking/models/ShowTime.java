@@ -23,7 +23,7 @@ public class ShowTime {
         }
     }
     public void printSeatingPlan() {
-        System.out.println("Seating plan for: " + movie.getTittle() + " (" + time + ")");
+        System.out.println("Seating plan for: " + movie.getTitle() + " (" + time + ")");
         System.out.println("-------------------------------");
         
         int counter = 0;
