@@ -27,7 +27,6 @@ public class User {
     @Override
     public String toString(){
         return "User: " + username +
-               " | Reservations: " + reservationHistory.size();
-    }
-    
+            " | Reservations: " + reservationHistory.size();
+    }        
 }

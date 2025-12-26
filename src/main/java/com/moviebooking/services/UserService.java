@@ -5,6 +5,8 @@ import com.moviebooking.models.Reservation;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,6 +80,26 @@ public class UserService {
             return user.getReservationHistory();
         }
         return new ArrayList<>();
+    }
+
+    // Register a new user and save to CSV
+    public void registerUser(String username, String password, String filePath) {
+        User existingUser = getUserByUsername(username);
+        if (existingUser != null) {
+            System.out.println("Username already exists.");
+            return;
+        }
+
+        User newUser = new User(username, password);
+        users.add(newUser);
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath, true))) {
+            writer.println(username + "," + password);
+        } catch (Exception e) {
+            System.out.println("Error writing to CSV: " + e.getMessage());
+        }
+
+        System.out.println("User " + username + " registered successfully.");
     }
 
     // Get all users
