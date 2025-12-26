@@ -1,4 +1,4 @@
-package main.java.com.moviebooking.models;
+package com.moviebooking.models;
 
 public class Seat {
     private String seatNumber;

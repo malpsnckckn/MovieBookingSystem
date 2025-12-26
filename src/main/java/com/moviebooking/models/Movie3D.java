@@ -1,4 +1,4 @@
-package main.java.com.moviebooking.models;
+package com.moviebooking.models;
 
 public class Movie3D extends Movie{
     private static final double glasses_price = 25.0;

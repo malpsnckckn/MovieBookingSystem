@@ -1,4 +1,4 @@
-package main.java.com.moviebooking.models;
+package com.moviebooking.models;
 
 import java.util.ArrayList;
 import java.util.List;

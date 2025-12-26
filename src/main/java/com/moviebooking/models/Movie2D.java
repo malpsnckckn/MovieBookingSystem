@@ -1,4 +1,4 @@
-package main.java.com.moviebooking.models;
+package com.moviebooking.models;
 
 public class Movie2D extends Movie {
     public Movie2D(String title, String genre, int durationMinute, double basePrice){
