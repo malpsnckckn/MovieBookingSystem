@@ -1,6 +1,6 @@
 package com.moviebooking.models;
 import java.util.ArrayList;
-import java.util.List;;
+import java.util.List;
 public class User {
     private String username;
     private String password;
@@ -14,6 +14,7 @@ public class User {
     public String getUsername(){
         return username;
     }
+    //do not use getter for passwords for security reasons.
     public boolean checkPassword(String password){
         return this.password.equals(password);
     }
