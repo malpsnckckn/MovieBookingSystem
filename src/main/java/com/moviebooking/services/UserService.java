@@ -15,17 +15,18 @@ public class UserService {
     public UserService() {
         users = new ArrayList<>();
     }
-
-    public void loadUsersFromFile(String filePath) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+    // Load users from CSV file
+    public void loadUsersFromFile(String filePath){
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))){
             String line;
             boolean firstLine = true;
 
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null){
                 if (firstLine) {
                     firstLine = false;
                     continue;
                 }
+
                 String[] parts = line.split(",");
                 if (parts.length == 2) {
                     String username = parts[0].trim();
@@ -33,20 +34,33 @@ public class UserService {
                     users.add(new User(username, password));
                 }
             }
+
             System.out.println("Users loaded successfully.");
+
         } catch (IOException e) {
             System.out.println("Error loading users file: " + e.getMessage());
         }
     }
-    public User login(String username, String password) {
+    //find username
+    public User getUserByUsername(String username){
         for (User user : users) {
-            if (user.getUsername().equals(username) && user.checkPassword(password)) {
+            if (user.getUsername().equals(username)){
                 return user;
             }
         }
         return null;
     }
-    public List<User> getAllUsers() {
+    // Login control
+    public User login(String username, String password){
+        User user = getUserByUsername(username);
+        if (user != null && user.checkPassword(password)){
+            return user;
+        }
+        return null;
+    }
+
+//debugin / testing
+    public List<User> getAllUsers(){
         return users;
     }
 }
