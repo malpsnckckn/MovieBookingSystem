@@ -1,32 +1,58 @@
 package com.moviebooking.models;
+
 import java.util.ArrayList;
 import java.util.List;
+
 public class User {
+
     private String username;
     private String password;
+    private String role;
     private List<Reservation> reservationHistory;
 
-    public User( String username, String password){
+    public User(String username, String password, String role) {
         this.username = username;
         this.password = password;
+        this.role = role;
         this.reservationHistory = new ArrayList<>();
     }
-    public String getUsername(){
+
+    public User(String username, String password) {
+        this(username, password, "USER");
+    }
+
+    public String getUsername() {
         return username;
     }
-    //do not use getter for passwords for security reasons.
-    public boolean checkPassword(String password){
+
+    public String getPasswordForSaving() {
+        return password;
+    }
+
+    public boolean checkPassword(String password) {
         return this.password.equals(password);
     }
-    public void addReservation(Reservation reservation){
+
+    public String getRole() {
+        return role;
+    }
+
+    public boolean isAdmin() {
+        return "ADMIN".equalsIgnoreCase(role);
+    }
+
+    public void addReservation(Reservation reservation) {
         reservationHistory.add(reservation);
     }
-    public List<Reservation> getReservationHistory(){
+
+    public List<Reservation> getReservationHistory() {
         return reservationHistory;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return "User: " + username +
-            " | Reservations: " + reservationHistory.size();
-    }        
+               " | Role: " + role +
+               " | Reservations: " + reservationHistory.size();
+    }
 }

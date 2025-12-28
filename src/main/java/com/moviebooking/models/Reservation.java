@@ -1,46 +1,34 @@
 package com.moviebooking.models;
+
 import java.util.ArrayList;
 import java.util.List;
-public class Reservation {
-    private ShowTime showTime;
-    private List<Seat> reservedSeats;
-    private List<Snack> snacks;
-    private double totalPrice;
 
-    public Reservation(ShowTime showTime){
+public class Reservation {
+
+    private ShowTime showTime;
+    private List<Seat> seats;
+
+    public Reservation(ShowTime showTime) {
         this.showTime = showTime;
-        this.reservedSeats = new ArrayList<>();
-        this.snacks = new ArrayList<>();
-        this.totalPrice = 0.0;
+        this.seats = new ArrayList<>();
     }
-    public void addSeat(Seat seat){
-        if(!seat.isReserved()){
-            seat.reserve();
-            reservedSeats.add(seat);
-            totalPrice += showTime.getMovie().getTicketPrice();
-        }
+
+    public void addSeat(Seat seat) {
+        seats.add(seat);
     }
-    public void addSnack(Snack snack){
-        snacks.add(snack);
-        totalPrice += snack.getPrice();
-    }
-    public double getTotalPrice(){
-        return totalPrice;
-    }
-    public List<Seat> getReservedSeats(){
-        return reservedSeats;
-    }
-    public List<Snack> getSnacks(){
-        return snacks;
-    }
-    public ShowTime getShowTime(){
+
+    public ShowTime getShowTime() {
         return showTime;
     }
+
+    public List<Seat> getSeats() {
+        return seats;
+    }
+
     @Override
-    public String toString(){
+    public String toString() {
         return "Movie: " + showTime.getMovie().getTitle() +
-                ", Time: " + showTime +
-                ", Seats: " + reservedSeats.size() + 
-                ", Total: " + totalPrice + "$";
+                " | Time: " + showTime.getTime() +
+                " | Seats: " + seats;
     }
 }
