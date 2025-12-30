@@ -90,7 +90,7 @@ public class ReservationService {
         showTimeService.saveShowTimes(day, showTimes);
 
         System.out.println("\nReservation completed!");
-        System.out.println("Total price: " + totalPrice + " ₺");
+        System.out.println("Total price: " + totalPrice + " $");
     }
     private String selectDay(Scanner scanner) {
 

@@ -100,12 +100,13 @@ public class UserService {
     public void addUser(User user) {
         users.add(user);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("data/users.csv", true))) {
-            writer.newLine();
+            
             writer.write(
                 user.getUsername() + "," +
                 user.getPasswordForSaving() + "," +
-                user.getRole()
+                user.getRole()  
             );
+            writer.newLine();
         } catch (IOException e) {
             System.out.println("Error writing to CSV: " + e.getMessage());
         }

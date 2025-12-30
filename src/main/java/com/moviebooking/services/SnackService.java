@@ -9,9 +9,9 @@ public class SnackService {
         initializeSnacks();
     }
     private void initializeSnacks(){
-        snacks.add(new Snack("Popcorn (Small)", 40));
-        snacks.add(new Snack("Popcorn (Medium", 60));
-        snacks.add(new Snack("Popcorn (Large)", 80));
+        snacks.add(new Snack("Popcorn (Small)", 4));
+        snacks.add(new Snack("Popcorn (Medium", 6));
+        snacks.add(new Snack("Popcorn (Large)", 8));
         snacks.add(new Snack("Water", 15));
         snacks.add(new Snack("Cola", 30));
     }
