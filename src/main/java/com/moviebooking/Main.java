@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         startApplication();
     }
-
+//start application
     private static void startApplication() {
 
         Scanner scanner = new Scanner(System.in);
@@ -40,7 +40,7 @@ public class Main {
             scanner.nextLine();
 
             switch (choice) {
-
+//login user 
                 case 1 -> {
                     System.out.print("Username: ");
                     String username = scanner.nextLine();
@@ -63,9 +63,9 @@ public class Main {
                         System.out.println("Invalid username or password.");
                     }
                 }
-
+//new user
                 case 2 -> registerUser(scanner, userService);
-
+//exit
                 case 3 -> {
                     running = false;
                     System.out.println("Exiting system...");
@@ -98,12 +98,12 @@ public class Main {
             scanner.nextLine();
 
             switch (choice) {
-
+//reservation 
                 case 1 -> reservationService.makeReservation(scanner, user);
-
+//show reservation history
                 case 2 -> ReservationHistoryService
                         .printUserHistory(user.getUsername());
-
+//logout
                 case 3 -> {
                     userMenuRunning = false;
                     System.out.println("Logged out.");
@@ -113,7 +113,7 @@ public class Main {
             }
         }
     }
-
+//new user register
     private static void registerUser(
             Scanner scanner,
             UserService userService
@@ -121,7 +121,7 @@ public class Main {
 
         System.out.print("Enter new username: ");
         String username = scanner.nextLine();
-
+//check the same username 
         if (userService.getUserByUsername(username) != null) {
             System.out.println("Username already exists.");
             return;
@@ -129,7 +129,7 @@ public class Main {
 
         System.out.print("Enter password: ");
         String p1 = scanner.nextLine();
-
+//check the password 
         System.out.print("Confirm password: ");
         String p2 = scanner.nextLine();
 

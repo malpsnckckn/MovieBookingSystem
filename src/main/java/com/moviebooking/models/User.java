@@ -36,7 +36,7 @@ public class User {
     public String getRole() {
         return role;
     }
-
+// check admin
     public boolean isAdmin() {
         return "ADMIN".equalsIgnoreCase(role);
     }

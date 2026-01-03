@@ -22,7 +22,7 @@ public class AdminService {
             scanner.nextLine();
 
             switch (choice) {
-
+// add movie
                 case 1 -> addMovie(scanner);
 
                 case 2 -> {
@@ -36,10 +36,10 @@ public class AdminService {
     }
 
     private void addMovie(Scanner scanner) {
-
+// selected movie day
         String day = selectDay(scanner);
         if (day == null) return;
-
+// movie information
         System.out.print("Movie title: ");
         String title = scanner.nextLine();
 
@@ -57,7 +57,7 @@ public class AdminService {
         String time = scanner.nextLine();
 
         String filePath = "data/" + day.toLowerCase() + ".csv";
-
+// add CSV 
         try (BufferedWriter writer = new BufferedWriter(
                 new FileWriter(filePath, true))) {
 
@@ -67,7 +67,7 @@ public class AdminService {
               .append(duration).append(",")
               .append(price).append(",")
               .append(time);
-
+//at first all seat avaliable
             for (char r = 'A'; r <= 'E'; r++) {
                 for (int i = 1; i <= 10; i++) {
                     sb.append(",available");
@@ -85,7 +85,7 @@ public class AdminService {
     }
 
     private String selectDay(Scanner scanner) {
-
+//select a day
         String[] days = {
                 "Monday", "Tuesday", "Wednesday",
                 "Thursday", "Friday", "Saturday", "Sunday"

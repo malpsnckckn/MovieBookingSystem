@@ -22,7 +22,7 @@ public class ShowTimeService {
             while ((line = reader.readLine()) != null) {
 
                 String[] p = line.split(",");
-
+//A Movie object is created (polymorphism)
                 Movie movie = p[1].equalsIgnoreCase("3D")
                         ? new Movie3D(
                                 p[0],
@@ -36,7 +36,7 @@ public class ShowTimeService {
                                 Integer.parseInt(p[2]),
                                 Double.parseDouble(p[3])
                         );
-
+//session created using movie and time information
                 ShowTime st = new ShowTime(movie, p[4]);
 
                 List<Seat> seats = st.getSeats();

@@ -10,11 +10,18 @@ import com.moviebooking.models.User;
 
 import java.util.Scanner;
 
+/**
+ * Tests basic behaviors of ReservationService.
+ * Focuses on handling invalid user input safely.
+ */
+
 public class ReservationServiceTest {
 
     private ReservationService reservationService;
     private User testUser;
-
+/**
+* Creates objects before each test.
+*/
     @BeforeEach
     void setUp() {
         reservationService = new ReservationService();
@@ -23,7 +30,7 @@ public class ReservationServiceTest {
 
     @Test
     void testMakeReservationWithInvalidDaySelection() {
-
+// Simulates invalid day selection (0)
         String fakeInput = "0\n";
         Scanner scanner = new Scanner(fakeInput);
 

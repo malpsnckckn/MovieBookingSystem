@@ -9,16 +9,23 @@ import com.moviebooking.services.ShowTimeService;
 import com.moviebooking.models.ShowTime;
 
 import java.util.List;
-
+/**
+ * Unit tests for ShowTimeService.
+ * Tests loading and saving showtime data.
+ */
 public class ShowTimeServiceTest{
 
     private ShowTimeService showTimeService;
-
+/**
+* Starting service before each test.
+*/
     @BeforeEach
     void setUp() {
         showTimeService = new ShowTimeService();
     }
-
+ /**
+* Tests loading showtimes with a valid day.
+*/
     @Test
     void testLoadShowTimesWithValidDay() {
         List<ShowTime> showTimes = showTimeService.loadShowTimes("Monday");
@@ -26,7 +33,9 @@ public class ShowTimeServiceTest{
         assertNotNull(showTimes, "ShowTimes list should not be null.");
         assertFalse(showTimes.isEmpty(), "ShowTimes list should not be empty for a valid day.");
     }
-
+/**
+* Tests behavior when an invalid day is provided.
+*/
     @Test
     void testLoadShowTimesWithInvalidDay() {
         List<ShowTime> showTimes = showTimeService.loadShowTimes("InvalidDay");

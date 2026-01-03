@@ -2,7 +2,9 @@ package com.moviebooking.services;
 import com.moviebooking.models.Snack;
 import java.util.ArrayList;
 import java.util.List;
+
 public class SnackService {
+//all snacks
     private List<Snack> snacks;
     public SnackService(){
         snacks = new ArrayList<>();
@@ -15,6 +17,7 @@ public class SnackService {
         snacks.add(new Snack("Water", 3));
         snacks.add(new Snack("Cola", 5));
     }
+//show the snack menu
     public void printSnackMenu(){
         System.out.println("====Snack Menu====");
         System.out.println();
@@ -23,6 +26,7 @@ public class SnackService {
         }
         System.out.println("0. Finish snack. Selection");
     }
+//return a snack according to selected index
     public Snack getSnackByIndex(int index){
         if (index > 0 && index <= snacks.size()){
             return snacks.get(index - 1);

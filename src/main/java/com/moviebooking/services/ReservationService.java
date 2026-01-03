@@ -13,9 +13,9 @@ public class ReservationService {
         this.showTimeService = new ShowTimeService();
         this.snackService = new SnackService();
     }
-
+//start the rezervation
     public void makeReservation(Scanner scanner, User user) {
-
+//select day
         String day = selectDay(scanner);
         if (day == null) return;
 
@@ -25,7 +25,7 @@ public class ReservationService {
             System.out.println("No showtimes available.");
             return;
         }
-
+// view session
         for (int i = 0; i < showTimes.size(); i++) {
             ShowTime st = showTimes.get(i);
             System.out.println((i + 1) + ". "
@@ -48,7 +48,7 @@ public class ReservationService {
 
         System.out.print("Enter seat (A1): ");
         String seatId = scanner.nextLine();
-
+//show us setting plan
         Reservation reservation =
                 selectedShowTime.createReservation(seatId);
 
@@ -75,7 +75,7 @@ public class ReservationService {
                 snackTotal += snack.getPrice();
             }
         }
-
+// calculate total price
         double totalPrice =
                 selectedShowTime.calculateBasePrice() + snackTotal;
 

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
-
+// all user registered in system
     private List<User> users;
 
     public UserService() {
@@ -26,6 +26,7 @@ public class UserService {
         boolean firstLine = true;
 
         while ((line = reader.readLine()) != null) {
+//skip the first (header)line
             if (firstLine) {
                 firstLine = false;
                 continue;
@@ -63,7 +64,7 @@ public class UserService {
         }
         return null;
     }
-
+//add reservation (user)
     public void addReservationForUser(String username, Reservation reservation) {
         User user = getUserByUsername(username);
         if (user != null) {

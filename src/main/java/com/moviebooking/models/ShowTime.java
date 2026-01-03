@@ -4,19 +4,26 @@ import com.moviebooking.interfaces.Bookable;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Represents a movie showtime with seats and booking operations.
+ */
 public class ShowTime implements Bookable {
 
-    private Movie movie;
-    private String time;
-    private List<Seat> seats;
-
+    private Movie movie; // movie played in this show time
+    private String time; // showtime(HH:mm)
+    private List<Seat> seats; //seating plan
+/**
+* Creates a showtime and initializes seats.
+*/
     public ShowTime(Movie movie, String time) {
         this.movie = movie;
         this.time = time;
         this.seats = new ArrayList<>();
         initializeSeats();
     }
+/**
+* Initializes seat layout (A–E, 1–10).
+*/
     private void initializeSeats() {
         String[] rows = {"A", "B", "C", "D", "E"};
         for (String row : rows) {
@@ -25,6 +32,9 @@ public class ShowTime implements Bookable {
             }
         }
     }
+/**
+* Prints seating plan with reservation status.
+*/
     public void printSeatingPlan() {
         System.out.println("Seating plan for: "
                 + movie.getTitle() + " (" + time + ")");
@@ -43,7 +53,9 @@ public class ShowTime implements Bookable {
             }
         }
     }
-
+/**
+* Reserves a seat if available.
+*/
     @Override
     public boolean bookSeat(String seatNumber) {
         for (Seat seat : seats) {
@@ -59,7 +71,7 @@ public class ShowTime implements Bookable {
     public Reservation createReservation(String seatNumber) {
 
         if (!bookSeat(seatNumber)) {
-            return null;
+            return null; // seat unavaliable
         }
 
         Reservation reservation = new Reservation(this);

@@ -9,7 +9,7 @@ import java.util.*;
 public class ReservationHistoryService {
 
     private static final String FILE_PATH = "data/ReservationHistory.csv";
-
+//save the user's reservation
     public static void saveReservation(
             String username,
             String day,
@@ -23,7 +23,7 @@ public class ReservationHistoryService {
             String snackText = snacks.isEmpty()
                     ? "None"
                     : String.join(" | ", snacks);
-
+//A separate record is created for each seat.
             for (Seat seat : reservation.getSeats()) {
                 writer.write(
                         username + "," +
