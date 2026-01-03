@@ -12,8 +12,8 @@ public class SnackService {
         snacks.add(new Snack("Popcorn (Small)", 4));
         snacks.add(new Snack("Popcorn (Medium", 6));
         snacks.add(new Snack("Popcorn (Large)", 8));
-        snacks.add(new Snack("Water", 15));
-        snacks.add(new Snack("Cola", 30));
+        snacks.add(new Snack("Water", 3));
+        snacks.add(new Snack("Cola", 5));
     }
     public void printSnackMenu(){
         System.out.println("====Snack Menu====");
